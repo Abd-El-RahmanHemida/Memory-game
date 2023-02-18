@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Tahoma, sans-serif;
+}
+.control-buttons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(3, 169, 244, 0.9);
+  z-index: 2;
+}
+.control-buttons span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f44336;
+  padding: 15px 25px;
+  cursor: pointer;
+  font-size: 25px;
+  border-radius: 6px;
+  color: #fff;
+}
+.info-container {
+  display: flex;
+  width: 1080px;
+  justify-content: space-between;
+  margin: 20px auto 0;
+  padding: 20px;
+  font-size: 24px;
+  background-color: #f6f6f6;
+  border: 2px solid #2196f3;
+}
+.game {
+  width: 1100px;
+  margin: 20px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.game.no-clicking {
+  pointer-events: none;
+}
+.game .game-block {
+  transition: transform 0.6s;
+  height: 200px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  flex: 1 0 200px;
+  margin: 0 10px 20px;
+}
+.game .game-block .face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  backface-visibility: hidden;
+  border: 5px solid #2196f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game .game-block .front {
+  background-color: #333;
+  line-height: 200px;
+}
+.game .game-block .front::before {
+  content: "?";
+  font-size: 140px;
+  color: #fff;
+  font-weight: bold;
+}
+.game .game-block .back {
+  background-color: #607d8b;
+  transform: rotateY(180deg);
+}
+.game .back img {
+  width: 140px;
+  height: 140px;
+}
+.game .game-block.is-flipped,
+.game .game-block.has-match {
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
